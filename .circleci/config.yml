@@ -14,9 +14,9 @@ jobs:
     executor: golang
     steps:
       - checkout
-      - restore_cache:
-          keys:
-          - go-mod-v1-{{ checksum "go.sum" }}
+      # - restore_cache:
+      #     keys:
+      #     - go-mod-v1-{{ checksum "go.sum" }}
       - run:
           name: build
           command: go build
