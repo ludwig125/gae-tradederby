@@ -67,10 +67,12 @@ workflows:
             branches:
               only:
                 - master
-      - hold-promote:
-          type: approval
-          requires:
-          - deploy
+      # approvalいらないので取り急ぎコメントアウト
+      # - hold-promote:
+      #     type: approval
+      #     requires:
+      #     - deploy
       - promote:
           requires:
-          - hold-promote
+           - deploy 
+          # - hold-promote
