@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"runtime"
 )
 
 func main() {
@@ -26,5 +27,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	fmt.Fprint(w, "Hello, World!3")
+	fmt.Fprint(w, "Hello, World!4")
+	fmt.Fprintf(w, "cpu: %d\n", runtime.NumCPU())
+	fmt.Fprintf(w, "GOMAXPROCS: %d\n", runtime.GOMAXPROCS(0))
 }
